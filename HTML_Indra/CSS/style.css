@@ -1,69 +1,207 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #1a1a1a, #2e7d32);
+  background-image: url('/HTML_Indra/Images/fondo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 header {
-    background-color: #2d8a53;
-    padding: 20px;
-    text-align: center;
-    color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Logo a la izquierda y menú centrado */
+  padding: 1rem 2rem;
+  background-color: #36963b;
+  color: white;
+  border-radius: 15px 15px 0 0;
+  height: 80px;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+.marca {
+  flex: 1; /* Mantiene el logo alineado a la izquierda */
 }
 
-nav ul li {
-    margin: 0 15px;
+.logo-imagen {
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid black;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+.menu-centro {
+  flex: 2;
+  display: flex;
+  justify-content: flex-start; /* Mueve el menú ligeramente a la izquierda */
+  margin-left: 20%;
 }
 
-section {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+.menu li {
+  text-align: center;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-th {
-    background-color: #2d8a53;
-    color: white;
+.menu li a:hover {
+  color: #c8e6c9;
 }
 
-button {
-    background-color: #2d8a53;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.seccion-inicial {
+  position: relative;
+  text-align: center;
+  padding-bottom: 2rem; /* Espacio antes del carrusel */
 }
 
-button:hover {
-    background-color: #24693d;
+.texto-fondo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.seccion-inicial img {
+  width: 0%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Fondo y estilos para la sección del carrusel */
+.carrusel-contenedor {
+  position: relative;
+  background-image: url('/HTML_Indra/Images/fondo.png'), linear-gradient(to right, #2e7d32, #1b5e20);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  padding: 3rem 0;
+  text-align: center;
+  min-height: 700px; /* Aumenta la altura de la sección */
+  padding: 5rem 0; /* Más espacio interno */
+}
+
+.texto-bienvenida {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.titulo-eventos {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  background: rgba(54, 150, 59, 0.8);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  width: fit-content;
+  box-shadow: 0 4px 8px rgba(37, 37, 37, 0.3);
+}
+
+.galeria {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.control {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.contenedor-imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.imagen {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0.5;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.imagen.activa {
+  width: 200px;
+  height: 240px;
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(31, 199, 9, 0.3);
+}
+
+.imagen-intro {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.imagen-intro img {
+  width: 700px;
+  height: 400px;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+footer {
+  min-height: 100px; /* Aumenta la altura del footer */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centra el contenido verticalmente */
+  background: #2e7d32;
+  color: white;
+  padding: 4rem;
+  text-align: center;
+}
+
+.footer-seccion {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.footer-seccion h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-seccion a {
+  color: #c8e6c9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-seccion a:hover {
+  color: white;
 }

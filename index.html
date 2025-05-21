@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Eventos Sostenibles</title>
-    <link rel="stylesheet" href="/Html_Indra/CSS/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoEventos</title>
+  <link rel="stylesheet" href="/HTML_Indra/CSS/style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Portal de Eventos Sostenibles</h1>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/eventos.html">Eventos</a></li>
-            </ul>
-        </nav>
-    </header>
+ <header>
+  <div class="marca">
+    <a href="#inicio">
+      <img src="/HTML_Indra/Images/logo.png" alt="Logo EcoEventos" class="logo-imagen">
+    </a>
+  </div>
 
-    <main>
-        <section class="bienvenida">
-            <h2>Bienvenidos al portal de gestión de eventos sostenibles</h2>
-            <p>Descubre eventos ecológicos, talleres y conferencias para promover la sostenibilidad.</p>
-        </section>
+  <nav class="menu-centro">
+    <ul class="menu">
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="/eventos.html">Eventos</a></li>
+    </ul>
+  </nav>
+</header>
 
-        <section class="carrusel">
-            <h2>
-                ㅤㅤㅤㅤ
-                Próximos
-                 Eventos</h2>
-            <div class="evento">
-                <img src="/Html_Indra/Images/evento_1.png" alt="Evento ecológico">
-                <h3>Taller de reciclaje</h3>
-            </div>
-            <div class="evento">
-                <img src="/Html_Indra/Images/evento_2.jpg" alt="Conferencia ambiental">
-                <h3>Conferencia sobre energía renovable</h3>
-            </div>
-            <div class="evento">
-                <img src="/Html_Indra/Images/evento_3.png" alt="Jornada ecológica">
-                <h3>Jornada de reforestación</h3>
-            </div>
-        </section>
-    </main>
+<main id="inicio">
+  <section class="carrusel-contenedor">
+    <div class="texto-bienvenida">
+      <h1>Bienvenido a nuestro portal sostenible</h1>
+      <p>Descubre eventos eco-amigables y contribuye a un mundo mejor.</p>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Portal de Eventos Sostenibles</p>
-    </footer>
+    <section class="imagen-intro">
+      <img src="/HTML_Indra/Images/introductoria.png" alt="Imagen introductoria">
+    </section>
+
+    <h2 class="titulo-eventos">Nuestros próximos eventos</h2>
+
+    <section class="galeria">
+      <button class="control izq">&#8592;</button>
+      <div class="contenedor-imagenes">
+        <img src="/HTML_Indra/Images/evento_1.png" alt="Imagen 1" class="imagen">
+        <img src="/HTML_Indra/Images/evento_2.jpg" alt="Imagen 2" class="imagen activa">
+        <img src="/HTML_Indra/Images/evento_3.jpeg" alt="Imagen 3" class="imagen">
+      </div>
+      <button class="control der">&#8594;</button>
+    </section>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-seccion">
+    <h3>Contacto</h3>
+    <p>Email: info@ecoeventos.com</p>
+    <p>Teléfono: +34 123 456 789</p>
+  </div>
+
+  <div class="footer-seccion">
+    <h3>Redes Sociales</h3>
+    <p><a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a></p>
+  </div>
+
+  <div class="footer-seccion">
+    <h3>Información</h3>
+    <p>© 2025 EcoEventos - Todos los derechos reservados</p>
+  </div>
+</footer>
+
+  <script src="/HTML_Indra/JS/galeria.js"></script>
 </body>
 </html>
