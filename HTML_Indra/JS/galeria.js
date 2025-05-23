@@ -33,12 +33,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   actualizarGaleria();
 
-  // Redireccionar a "eventos.html" al hacer clic en cualquier botón de la galería
-  botonIzq.addEventListener('dblclick', () => {
-    window.location.href = "/eventos.html";
-  });
-
-  botonDer.addEventListener('dblclick', () => {
-    window.location.href = "/eventos.html";
-  });
 });

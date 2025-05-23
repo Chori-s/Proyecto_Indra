@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #1a1a1a, #2e7d32);
+    background-image: url('/HTML_Indra/Images/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: white;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #36963b;
+    color: white;
+    border-radius: 15px 15px 0 0;
+    height: 80px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    text-align: center;
+    flex: 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #c8e6c9;
+}
+
+.evento-destacado {
+    display: flex;
+    padding: 3rem;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.imagen-evento img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.info-evento {
+    flex: 1;
+}
+
+.info-evento h2 {
+    font-size: 2.2rem;
+    margin-top: 0;
+    color: #a5d6a7;
+}
+
+.fecha, .ubicacion {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.descripcion {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+}
+
+.inscribirse {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.inscribirse:hover {
+    background-color: #1b5e20;
+}
+
+.detalles {
+    background-color: rgba(54, 150, 59, 0.3);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.detalles h3 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    color: #a5d6a7;
+    text-align: center;
+}
+
+.detalles-contenido {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.horario, .ponentes, .programa {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.horario h4, .ponentes h4, .programa h4 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    color: #a5d6a7;
+}
+
+.ponentes ul, .programa ul {
+    padding-left: 1.2rem;
+}
+
+.ponentes li, .programa li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2e7d32;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-seccion {
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.footer-seccion h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-seccion a {
+    color: #c8e6c9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-seccion a:hover {
+    color: white;
+}
