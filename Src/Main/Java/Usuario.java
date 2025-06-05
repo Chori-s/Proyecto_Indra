@@ -17,19 +17,19 @@ public class Usuario {
     }
 
     public void inscribirse(Evento evento) {
-        boolean yaInscrito = false;
+        boolean encontrado = false;
         for (int i = 0; i < eventosInscritos.size(); i++) {
             if (eventosInscritos.get(i).getId() == evento.getId()) {
-                yaInscrito = true;
+                encontrado = true;
                 break;
             }
         }
-        if (!yaInscrito) {
+        
+        if (!encontrado) {
             eventosInscritos.add(evento);
-            evento.agregarInscrito(this); 
-            System.out.println("Inscripción a '" + evento.getNombre() + "' realizada.");
+            System.out.println(nombre + " se ha inscrito en: " + evento.getNombre());
         } else {
-            System.out.println("Ya estabas inscrito en este evento.");
+            System.out.println(nombre + " ya estaba inscrito en este evento.");
         }
     }
 
@@ -37,45 +37,97 @@ public class Usuario {
         for (int i = 0; i < eventosInscritos.size(); i++) {
             if (eventosInscritos.get(i).getId() == evento.getId()) {
                 eventosInscritos.remove(i);
-                evento.quitarInscrito(this); // Bidireccionalidad
-                System.out.println("Inscripción cancelada.");
+                System.out.println("Inscripción cancelada correctamente.");
                 return;
             }
         }
         System.out.println("No estabas inscrito en este evento.");
     }
 
-    public ArrayList<Evento> getEventosInscritos() {
-        return eventosInscritos; 
-    }
-
     public static void guardarUsuarios(ArrayList<Usuario> usuarios, String rutaArchivo) {
+        BufferedWriter bw = null;
         try {
-            PrintWriter pw = new PrintWriter(new FileWriter(rutaArchivo));
+            bw = new BufferedWriter(new FileWriter(rutaArchivo));
+            
             for (int i = 0; i < usuarios.size(); i++) {
                 Usuario u = usuarios.get(i);
-                pw.println(u.id + "," + u.nombre + "," + u.email + "," + u.contrasena);
+                String linea = u.id + "," + u.nombre + "," + u.email + "," + u.contrasena;
+                
+                linea += ",";
+                for (int j = 0; j < u.eventosInscritos.size(); j++) {
+                    if (j > 0) linea += ";";
+                    linea += u.eventosInscritos.get(j).getId();
+                }
+                
+                bw.write(linea);
+                bw.newLine();
             }
-            pw.close();
+            System.out.println("Usuarios guardados correctamente.");
         } catch (IOException e) {
-            System.err.println("Error al guardar: " + e.getMessage());
+            System.out.println("Error al guardar: " + e.getMessage());
+        } finally {
+            try {
+                if (bw != null) bw.close();
+            } catch (IOException e) {
+                System.out.println("Error al cerrar archivo: " + e.getMessage());
+            }
         }
     }
 
-    public int getId() {
-        return id;
+    public static ArrayList<Usuario> cargarUsuarios(String rutaArchivo, ArrayList<Evento> todosEventos) {
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+        BufferedReader br = null;
+        
+        try {
+            br = new BufferedReader(new FileReader(rutaArchivo));
+            String linea;
+            
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(",");
+                if (partes.length >= 4) {
+                    Usuario u = new Usuario(
+                        Integer.parseInt(partes[0]),
+                        partes[1],
+                        partes[2],
+                        partes[3]
+                    );
+                    
+                    if (partes.length > 4 && !partes[4].isEmpty()) {
+                        String[] idsEventos = partes[4].split(";");
+                        for (int i = 0; i < idsEventos.length; i++) {
+                            int idEvento = Integer.parseInt(idsEventos[i]);
+                            for (int j = 0; j < todosEventos.size(); j++) {
+                                if (todosEventos.get(j).getId() == idEvento) {
+                                    u.inscribirse(todosEventos.get(j));
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    usuarios.add(u);
+                }
+            }
+            System.out.println("Usuarios cargados correctamente.");
+        } catch (IOException e) {
+            System.out.println("Error al cargar: " + e.getMessage());
+        } finally {
+            try {
+                if (br != null) br.close();
+            } catch (IOException e) {
+                System.out.println("Error al cerrar archivo: " + e.getMessage());
+            }
+        }
+        return usuarios;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
+    // Getters básicos
+    public int getId() { return id; }
+    public String getNombre() { return nombre; }
+    public String getEmail() { return email; }
+    public ArrayList<Evento> getEventosInscritos() { return eventosInscritos; }
 
-    public String getEmail() {
-        return email;
-    }
-
-    // Método para mostrar info básica
+    // Método para mostrar información
     public String toString() {
-        return nombre + " (ID: " + id + ")";
+        return "ID: " + id + " - " + nombre + " (" + email + ")";
     }
 }
