@@ -20,7 +20,6 @@ public class Evento {
         this.inscritos = new ArrayList<Usuario>(); // Inicialización clásica
     }
 
-    // --- Métodos para inscripciones (con for normales) ---
     public void agregarInscrito(Usuario usuario) {
         boolean yaInscrito = false;
         for (int i = 0; i < inscritos.size(); i++) {
@@ -43,7 +42,6 @@ public class Evento {
         }
     }
 
-    // --- Getters básicos ---
     public int getId() {
         return id;
     }
@@ -68,7 +66,6 @@ public class Evento {
         return ubicacion;
     }
 
-    // Método para mostrar info básica (útil para depuración)
     public String toString() {
         return "Evento: " + nombre + " (ID: " + id + ")";
     }
