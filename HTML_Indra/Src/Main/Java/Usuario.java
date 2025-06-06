@@ -120,13 +120,11 @@ public class Usuario {
         return usuarios;
     }
 
-    // Getters básicos
     public int getId() { return id; }
     public String getNombre() { return nombre; }
     public String getEmail() { return email; }
     public ArrayList<Evento> getEventosInscritos() { return eventosInscritos; }
 
-    // Método para mostrar información
     public String toString() {
         return "ID: " + id + " - " + nombre + " (" + email + ")";
     }
