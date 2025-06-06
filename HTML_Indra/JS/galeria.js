@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const rutasImagenes = [
-    '/HTML_Indra/Images/evento_1.png',
+    '/Images/evento_1.png',
     '/HTML_Indra/Images/evento_2.jpg',
     '/HTML_Indra/Images/evento_3.jpeg',
   ];
